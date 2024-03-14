@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 import icon from "../../images/Frame.png";
-const Blog = ({ blog , bookHandler}) => {
+const Blog = ({ blog , bookHandler,timeHandler}) => {
   return (
-    <div className="">
+    <div className="border-2">
       <div className="my-6">
         <div className="">
           <img
@@ -38,9 +38,7 @@ const Blog = ({ blog , bookHandler}) => {
           <p>{blog.hashtags[0]}</p>
           <p>{blog.hashtags[1]}</p>
         </div>
-        <h4>
-          <a href="">Mark as read</a>
-        </h4>
+        <button onClick={() => timeHandler(blog.reading_time,blog.id)}>Mark as Read</button>
       </div>
     </div>
   );
@@ -48,7 +46,8 @@ const Blog = ({ blog , bookHandler}) => {
 
 Blog.propTypes = {
   blog: PropTypes.object.isRequired,
-  bookHandler : PropTypes.func
+  bookHandler : PropTypes.func,
+  timeHandler : PropTypes.func
 };
 
 export default Blog;

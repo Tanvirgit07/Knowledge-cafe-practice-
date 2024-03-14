@@ -4,7 +4,7 @@ import { useState } from "react";
 import Blog from "../Blog/Blog";
 import PropTypes from "prop-types"
 
-const Blogs = ({bookHandler}) => {
+const Blogs = ({bookHandler,timeHandler}) => {
   const [blogs, setBlogs] = useState([]);
   console.log(blogs);
   useEffect(() => {
@@ -19,6 +19,7 @@ const Blogs = ({bookHandler}) => {
         {blogs.map((blog) => (
           <Blog key={blog.id}
             bookHandler = {bookHandler}
+            timeHandler = {timeHandler}
            blog={blog}></Blog>
         ))}
       </div>
@@ -27,7 +28,8 @@ const Blogs = ({bookHandler}) => {
 };
 
 Blogs.propTypes = {
-  bookHandler : PropTypes.func
+  bookHandler : PropTypes.func,
+  timeHandler : PropTypes.func
 }
 
 export default Blogs;
